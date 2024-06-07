@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9f89e75f-f239-4c34-8d9f-a9b25174b831" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/data/data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/Inference.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/util/MessageUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/DataProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/data/DataReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/data/Image.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/data/MatrixUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/BatchNormalizationLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/ConvolutionLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/DropoutLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/FullyConnectedLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/Layer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/MaxPoolLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/network/NetworkBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/network/NeuralNetwork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/util/ArrayUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/util/DataAugmentation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/util/EarlyStopping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/util/ModelCheckpoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/prichardsondev/ann/inference-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2hY6cVovFoA58DGP2S6J0yLYeh9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Inference.executor": "Run",
+    "Application.Train.executor": "Run",
+    "Application.TrainNetwork.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/prich/.m2/repository/org/openjfx/javafx-swing/17.0.6/javafx-swing-17.0.6-win.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\prich\IdeaProjects\ann\src\main\data" />
+      <recent name="C:\Users\prich\IdeaProjects\ann\src\main\java\com\prichardsondev\ann\model\util" />
+      <recent name="C:\Users\prich\IdeaProjects\ann\src\main\java\com\prichardsondev\ann\model\network" />
+      <recent name="C:\Users\prich\IdeaProjects\ann\src\main\java\com\prichardsondev\ann\model\layers" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.prichardsondev.ann.model.util" />
+      <recent name="com.prichardsondev.ann.controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Inference">
+    <configuration name="Inference" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.prichardsondev.ann.Inference" />
+      <module name="ann" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Train" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.prichardsondev.ann.TrainNetwork" />
+      <module name="ann" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Inference" />
+      <item itemvalue="Application.Train" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f89e75f-f239-4c34-8d9f-a9b25174b831" name="Changes" comment="" />
+      <created>1717758744332</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717758744332</updated>
+      <workItem from="1717758745439" duration="13682000" />
+      <workItem from="1717772461971" duration="798000" />
+      <workItem from="1717773279039" duration="11557000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
