@@ -24,7 +24,17 @@ public class ConvolutionLayer extends Layer implements Serializable {
     private final int _inLength;
     private final int _inRows;
     private final int _inCols;
-    private final double _learningRate;
+
+
+    public void set_learningRate(double _learningRate) {
+        this._learningRate = _learningRate;
+    }
+
+    public double get_learningRate() {
+        return _learningRate;
+    }
+
+    private  double _learningRate;
 
     private List<double[][]> _lastInput;
 

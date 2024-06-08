@@ -11,9 +11,11 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.WritableImage;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class DataProcessor {
@@ -27,8 +29,8 @@ public class DataProcessor {
 
         // Resize to 28x28 with better interpolation
         BufferedImage resizedImage = new BufferedImage(28, 28, BufferedImage.TYPE_BYTE_GRAY);
-        java.awt.Graphics2D g2d = resizedImage.createGraphics();
-        g2d.setRenderingHint(java.awt.RenderingHints.KEY_INTERPOLATION, java.awt.RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        Graphics2D g2d = resizedImage.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         g2d.drawImage(bufferedImage, 0, 0, 28, 28, null);
         g2d.dispose();
 
@@ -79,11 +81,11 @@ public class DataProcessor {
                 .mapToObj(String::valueOf)
                 .collect(Collectors.joining(","));
         Image image = CSV2Image(row);
-        NeuralNetwork n = ModelCheckpoint.loadModel( DATA_DIR + "0.73_model.ser");
-        return n.guess(image); // Placeholder
+        NeuralNetwork n = ModelCheckpoint.loadModel( DATA_DIR + "0.74_model.ser");
+        return n != null ? n.guess(image) : 0; // Placeholder
     }
 
-    public static void splitCSVFile(String csvFile, int trainingPercent) {
+    public  void splitCSVFile(String csvFile, int trainingPercent) {
         List<String> lines = new ArrayList<>();
         String header = "";
 

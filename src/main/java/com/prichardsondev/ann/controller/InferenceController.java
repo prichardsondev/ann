@@ -110,7 +110,7 @@ public class InferenceController {
 
     @FXML
     private void handleAugmentData() throws IOException {
-        String csvFile = DATA_DIR + "data_augmented.csv";
+        String csvFile = DATA_DIR + "data.csv";
         String outputFile = DATA_DIR + "data_augmented.csv";
         dataProcessor.augmentData(csvFile, outputFile);
         statusBar.setText("Data augmented");
@@ -119,7 +119,7 @@ public class InferenceController {
     @FXML
     private void handleSplitDataSet() {
         String fullSet = DATA_DIR + "data_augmented.csv";
-        DataProcessor.splitCSVFile(fullSet, 80);
+        dataProcessor.splitCSVFile(fullSet, 80);
         statusBar.setText("Data augmented");
     }
 

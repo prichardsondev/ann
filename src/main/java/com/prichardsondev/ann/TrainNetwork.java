@@ -2,6 +2,8 @@ package com.prichardsondev.ann;
 
 import com.prichardsondev.ann.model.data.DataReader;
 import com.prichardsondev.ann.model.data.Image;
+import com.prichardsondev.ann.model.layers.ConvolutionLayer;
+import com.prichardsondev.ann.model.layers.FullyConnectedLayer;
 import com.prichardsondev.ann.model.network.NetworkBuilder;
 import com.prichardsondev.ann.model.network.NeuralNetwork;
 import com.prichardsondev.ann.model.util.*;
@@ -9,6 +11,7 @@ import com.prichardsondev.ann.model.util.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 import static com.prichardsondev.ann.model.util.ModelCheckpoint.loadModel;
 import static com.prichardsondev.ann.model.util.ModelCheckpoint.saveModel;
@@ -35,27 +38,40 @@ public class TrainNetwork {
     }
 
     private static void trainAndSerializeModel(long seed) throws IOException {
+        //set data to train on
         List<Image> train = DataReader.readData(DATA_DIR + "train_augmented.csv");
-        System.out.println("Training data size = " + train.size());
+        System.out.println("Training data loaded: " + train.size() + " records");
         List<Image> test = DataReader.readData(DATA_DIR + "test_augmented.csv");
-        System.out.println("Test data size = " + test.size());
+        System.out.println("Evaluation data loaded: " + test.size() + " records");
+        System.out.println();
 
+        //set network architecture
         NeuralNetwork net = getNeuralNetwork(seed);
-        int epochs = 100;
         EarlyStopping earlyStopping = new EarlyStopping(5); // Set patience for early stopping
         String modelCheckpointPath = DATA_DIR + "model_checkpoint.ser";
-        float rate = 0.0f;
-        for (int i = 0; i < epochs; i++) {
-            System.out.println("Epoch " + i);
-            shuffle(train);
-            net.train(train);
-            System.out.println();
-            rate = net.test(test);
-            System.out.println("Training success rate: " + rate);
 
-            // Save model after each epoch
+        //pretraining test
+        shuffle(train);
+        float rate = 0.0f;
+        rate = net.test(test);
+        System.out.println("Epoch 0 - Pretraining");
+        System.out.println("Test success rate: " + rate);
+        System.out.println();
+
+        //train model
+        int epochs = 100;
+        for (int i = 1; i <= epochs; i++) {
+
+            //adjustLeraningRate(net, i);
+            shuffle(train);
+
+            net.train(train);
+            rate = net.test(test);
             saveModel(net, modelCheckpointPath);
+            System.out.println("Epoch " + i);
+            System.out.println("Test success rate: " + rate);
             System.out.println("Model checkpoint saved after epoch " + i);
+            System.out.println();
 
             // Check for early stopping
             double valLoss = 1.0 - rate; // Assuming lower success rate indicates higher validation loss
@@ -65,19 +81,21 @@ public class TrainNetwork {
                 break;
             }
         }
-
+        //save final model with success rate
         saveModel(net, DATA_DIR + String.format("%.2f", rate) + "_" + "model.ser");
         System.out.println("Training complete and model serialized.");
     }
 
-    private static NeuralNetwork getNeuralNetwork(long seed) {
-        NetworkBuilder builder = new NetworkBuilder(28, 28, 256 * 100);
+    private static void adjustLeraningRate(NeuralNetwork net, int i) {
+        ConvolutionLayer c = (ConvolutionLayer) net.get_layers().get(0);
+        FullyConnectedLayer f = (FullyConnectedLayer) net.get_layers().get(2);
+        if(i !=0) {
+            c.set_learningRate(randomFloat());
+            f.set_learningRate(randomFloat());
+        }
 
-        builder.addConvolutionLayer(8, 5, 1, 0.1, seed);
-        builder.addMaxPoolLayer(3, 2);
-        builder.addFullyConnectedLayer(10, 0.1, seed);
-
-        return builder.build();
+        System.out.println("Convolution Learning Rate = " + c.get_learningRate());
+        System.out.println("Fully Connected Learning Rate = " + f.get_learningRate());
     }
 
     private static void fineTuneAndSerializeModel(long seed) throws IOException, ClassNotFoundException {
@@ -96,13 +114,13 @@ public class TrainNetwork {
         int epochs = 100; // Fine-tuning for fewer epochs might be sufficient
         EarlyStopping earlyStopping = new EarlyStopping(5); // Set patience for early stopping
         String modelCheckpointPath = DATA_DIR + "model_finetune_checkpoint.ser";
-
+        float rate = 0.0f;
         for (int i = 0; i < epochs; i++) {
             System.out.println("Epoch " + i);
             shuffle(train);
             net.train(train);
 
-            float rate = net.test(test);
+            rate = net.test(test);
             System.out.println("Training success rate: " + rate);
 
             // Save model after each epoch
@@ -118,7 +136,7 @@ public class TrainNetwork {
             }
         }
 
-        loadModel(DATA_DIR + "mnist_finetuned.ser");
+        saveModel(net, DATA_DIR + String.format("%.2f", rate) + "_" + "model_finetune.ser");
         System.out.println("Fine-tuning complete and model serialized.");
     }
 
@@ -130,5 +148,24 @@ public class TrainNetwork {
         shuffle(test);
         float rate = Objects.requireNonNull(net).test(test);
         System.out.println("Training success rate: " + rate);
+    }
+
+    private static NeuralNetwork getNeuralNetwork(long seed) {
+        double learningRateConvolution = .1;
+        double learningRateFullyConnected = .1;
+        NetworkBuilder builder = new NetworkBuilder(28, 28, 256 * 100);
+
+        builder.addConvolutionLayer(8,5,1,learningRateConvolution, seed);
+        builder.addMaxPoolLayer(3,2);
+        builder.addFullyConnectedLayer(10,learningRateFullyConnected ,seed);
+
+        return builder.build();
+    }
+
+    public static double randomFloat() {
+        Random random = new Random();
+        double min = 0.0001f;
+        double max = 0.1f;
+        return min + random.nextDouble() * (max - min);
     }
 }

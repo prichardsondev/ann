@@ -12,7 +12,15 @@ public class FullyConnectedLayer extends Layer implements Serializable{
     private final long _seed;
     private final double leak = 0.01;
 
-    private final double _learningRate;
+    public void set_learningRate(double _learningRate) {
+        this._learningRate = _learningRate;
+    }
+
+    public double get_learningRate() {
+        return _learningRate;
+    }
+
+    private  double _learningRate;
     private double[] lastZ;
     private double[] lastX;
 
