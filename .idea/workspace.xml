@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f89e75f-f239-4c34-8d9f-a9b25174b831" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/ShapeData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/data/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/Inference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/Inference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/ShapeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/ShapeData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/DataProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/ConvolutionLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/ConvolutionLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/FullyConnectedLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/FullyConnectedLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/util/DataAugmentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/util/DataAugmentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prichardsondev/ann/inference-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prichardsondev/ann/inference-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +47,8 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -82,6 +85,10 @@
       <recent name="C:\Users\prich\IdeaProjects\ann\src\main\java\com\prichardsondev\ann\model\network" />
       <recent name="C:\Users\prich\IdeaProjects\ann\src\main\java\com\prichardsondev\ann\model\layers" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\prich\IdeaProjects\ann\src\main\data\augmented" />
+      <recent name="C:\Users\prich\IdeaProjects\ann\src\main\data\mnist" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.prichardsondev.ann" />
     </key>
@@ -90,7 +97,7 @@
       <recent name="com.prichardsondev.ann.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Train">
+  <component name="RunManager" selected="Application.Inference">
     <configuration name="Inference" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.prichardsondev.ann.Inference" />
       <module name="ann" />
@@ -136,7 +143,7 @@
       <updated>1717758744332</updated>
       <workItem from="1717758745439" duration="13682000" />
       <workItem from="1717772461971" duration="798000" />
-      <workItem from="1717773279039" duration="30670000" />
+      <workItem from="1717773279039" duration="51567000" />
     </task>
     <servers />
   </component>

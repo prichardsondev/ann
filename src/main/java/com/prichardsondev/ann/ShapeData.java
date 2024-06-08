@@ -12,8 +12,10 @@ public class ShapeData {
 
         DataProcessor processor = new DataProcessor();
 
-        processor.augmentData(DATA_DIR + "data.csv", DATA_DIR + "augment_data.csv");
+        //processor.augmentData(DATA_DIR + "augment_data.csv", DATA_DIR + "augment_data.csv");
 
         processor.splitCSVFile(DATA_DIR + "augment_data.csv", 80);
+
+        System.out.println("Data processed successfully");
     }
 }

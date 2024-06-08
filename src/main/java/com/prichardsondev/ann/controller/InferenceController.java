@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -16,6 +18,7 @@ public class InferenceController {
     private static final String DATA_DIR = "src/main/data/";
     private int numberCorrect = 0;
     private int numberGuess = 0;
+    private Stage primaryStage;
 
     @FXML
     private TextArea tallyArea;
@@ -82,9 +85,9 @@ public class InferenceController {
     private void handleSave() throws IOException {
         int[] vector = dataProcessor.saveCanvasAsMNISTVector(drawingCanvas);
         int[] prependVector = dataProcessor.prependValue(vector, labelField.getText());
-        String scratch = DATA_DIR + "scratch.csv";
+        String file = DATA_DIR + "data.csv";
 
-        dataProcessor.appendToCSV(scratch, prependVector);
+        dataProcessor.appendToCSV(file, prependVector);
         clearCanvas();
         updateSaveCount();
         statusBar.setText("Saved item " + saveCount);
@@ -98,29 +101,15 @@ public class InferenceController {
 
     @FXML
     private void handleGuess() throws IOException {
-        int predictedDigit = dataProcessor.predictDigit(drawingCanvas, labelField.getText());
-        guessField.setText(String.valueOf(predictedDigit));
+        int predictedDigit = dataProcessor.predictDigit(drawingCanvas, guessField.getText());
 
-        if (predictedDigit == Integer.parseInt(labelField.getText())) numberCorrect++;
+        if (predictedDigit == Integer.parseInt(guessField.getText())) numberCorrect++;
         double percent = (double) numberCorrect / ++numberGuess;
         //tallyArea.setText("Number correct: " + numberCorrect + "\nNumber guessed: " + numberGuess + "\nPercent correct: " + percent);
-        statusBar.setText("Number correct: " + numberCorrect + "\nNumber guessed: " +
+        statusBar.setText("Prediction: " + predictedDigit + "\nNumber correct: " + numberCorrect + "\nNumber guessed: " +
                 numberGuess + "\n" + MessageUtil.getInferenceMessage( (int)(percent*100)));
-    }
 
-    @FXML
-    private void handleAugmentData() throws IOException {
-        String csvFile = DATA_DIR + "data.csv";
-        String outputFile = DATA_DIR + "data_augmented.csv";
-        dataProcessor.augmentData(csvFile, outputFile);
-        statusBar.setText("Data augmented");
-    }
-
-    @FXML
-    private void handleSplitDataSet() {
-        String fullSet = DATA_DIR + "data_augmented.csv";
-        dataProcessor.splitCSVFile(fullSet, 80);
-        statusBar.setText("Data augmented");
+        clearCanvas();
     }
 
     private void updateSaveCount() {
@@ -149,6 +138,8 @@ public class InferenceController {
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
+        alert.initOwner(primaryStage);
+        alert.initModality(Modality.WINDOW_MODAL);
         alert.showAndWait();
     }
 
@@ -161,6 +152,10 @@ public class InferenceController {
         if (mouseEvent.getButton() == MouseButton.SECONDARY) {
             handleSave();
         }
+    }
+
+    public void setPrimaryStage(Stage stage) {
+        this.primaryStage = stage;
     }
 }
 

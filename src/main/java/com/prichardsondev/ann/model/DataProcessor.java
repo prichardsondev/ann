@@ -81,7 +81,7 @@ public class DataProcessor {
                 .mapToObj(String::valueOf)
                 .collect(Collectors.joining(","));
         Image image = CSV2Image(row);
-        NeuralNetwork n = ModelCheckpoint.loadModel( DATA_DIR + "0.74_model.ser");
+        NeuralNetwork n = ModelCheckpoint.loadModel( DATA_DIR + "0.73_model_finetune.ser");
         return n != null ? n.guess(image) : 0; // Placeholder
     }
 

@@ -40,10 +40,9 @@
             <TitledPane text="Actions">
                 <VBox prefHeight="0.0" prefWidth="384.0" spacing="10">
                     <HBox spacing="10">
-                        <Button fx:id="augmentDataButton" onAction="#handleAugmentData" text="Augment Data" />
-                        <Button fx:id="splitDataSetButton" onAction="#handleSplitDataSet" text="SplitDataSet" />
-                        <Button fx:id="guessButton" onAction="#handleGuess" text="Guess" />
+                        <Button fx:id="guessButton" onAction="#handleGuess" text="Predict" />
                         <TextField fx:id="guessField" prefWidth="50" />
+                  <Label text="Enter number you are drawing" />
                     </HBox>
                <HBox prefHeight="100.0" prefWidth="200.0" />
                 </VBox>

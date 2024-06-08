@@ -50,9 +50,9 @@ public class DataAugmentation {
 
             augmentedData.addAll(Arrays.asList(
                     augmentImage(image, label, DataAugmentation::addRandomNoise),
-                    augmentImage(image, label, img -> rotateImage(img, 15))
-//                    augmentImage(image, label, img -> scaleImage(img, 1.1))
-//                    augmentImage(image, label, img -> translateImage(img, 2, 2))
+                    augmentImage(image, label, img -> rotateImage(img, 15)),
+                    augmentImage(image, label, img -> scaleImage(img, 1.1)),
+                    augmentImage(image, label, img -> translateImage(img, 2, 2))
             ));
         }
         return augmentedData;

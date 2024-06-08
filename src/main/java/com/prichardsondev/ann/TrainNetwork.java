@@ -25,11 +25,11 @@ public class TrainNetwork {
 
         /*To train and serialize the model, uncomment the following lines:*/
 
-        trainAndSerializeModel(seed);
+        //trainAndSerializeModel(seed);
 
         /*To retrain and serialize the model, uncomment the following lines:*/
 
-        //fineTuneAndSerializeModel(seed);
+        fineTuneAndSerializeModel(seed);
 
         /*To deserialize and test the model, uncomment the following lines:*/
 
@@ -37,8 +37,9 @@ public class TrainNetwork {
 
     }
 
-    private static void trainAndSerializeModel(long seed) throws IOException {
+    private static void trainAndSerializeModel1(long seed) throws IOException {
         //set data to train on
+        String modelName = "train_augmented";
         List<Image> train = DataReader.readData(DATA_DIR + "train_augmented.csv");
         System.out.println("Training data loaded: " + train.size() + " records");
         List<Image> test = DataReader.readData(DATA_DIR + "test_augmented.csv");
@@ -46,9 +47,63 @@ public class TrainNetwork {
         System.out.println();
 
         //set network architecture
-        NeuralNetwork net = getNeuralNetwork(seed);
+        double lrc = .35;
+        double lrf = .35;
+
+        shuffle(train);
+        float rate = 0.0f;
+        NeuralNetwork net = null;
+        //train model
+        for (int j = 0; j < 10; j++) {
+            EarlyStopping earlyStopping = new EarlyStopping(5); // Set patience for early stopping
+            if(net==null) {
+                net = getNeuralNetwork(seed, lrc, lrf);
+            }
+            else{
+                double[] lr = getLeraningRate(net);
+                net = getNeuralNetwork(seed, lr[0], lr[1]);
+            }
+            if(j!=0) adjustLeraningRate(net);
+
+            int epochs = 10;
+            for (int i = 1; i <= epochs; i++) {
+                shuffle(train);
+
+                net.train(train);
+                rate = net.test(test);
+
+                System.out.println(i + "," + rate);
+
+                // Check for early stopping
+                double valLoss = 1.0 - rate; // Assuming lower success rate indicates higher validation loss
+                if (earlyStopping.shouldStop(valLoss, net)) {
+                    System.out.println("Early stopping at epoch " + i);
+                    net = earlyStopping.getBestModel();
+                    break;
+                }
+            }
+            //save final model with success rate
+            String finalModelPath = String.format(DATA_DIR + "%s_%.3f_%.3f_%d_%.3f_model.ser",modelName, lrc, lrf, epochs, rate);
+            saveModel(net, finalModelPath);
+            System.out.println("Training complete and model serialized.");
+            System.out.println();
+        }
+    }
+
+    private static void trainAndSerializeModel(long seed) throws IOException {
+        //set data to train on
+        String modelName = "";
+        List<Image> train = DataReader.readData(DATA_DIR + "train_augmented.csv");
+        System.out.println("Training data loaded: " + train.size() + " records");
+        List<Image> test = DataReader.readData(DATA_DIR + "test_augmented.csv");
+        System.out.println("Evaluation data loaded: " + test.size() + " records");
+        System.out.println();
+
+        //set network architecture
+        double lrc = .1;
+        double lrf = .3;
+        NeuralNetwork net = getNeuralNetwork(seed, lrc, lrf);
         EarlyStopping earlyStopping = new EarlyStopping(5); // Set patience for early stopping
-        String modelCheckpointPath = DATA_DIR + "model_checkpoint.ser";
 
         //pretraining test
         shuffle(train);
@@ -59,14 +114,13 @@ public class TrainNetwork {
         System.out.println();
 
         //train model
-        int epochs = 100;
+        int epochs = 20;
         for (int i = 1; i <= epochs; i++) {
-
-            //adjustLeraningRate(net, i);
             shuffle(train);
 
             net.train(train);
             rate = net.test(test);
+            String modelCheckpointPath = String.format(DATA_DIR + "model_checkpoint.ser");
             saveModel(net, modelCheckpointPath);
             System.out.println("Epoch " + i);
             System.out.println("Test success rate: " + rate);
@@ -82,20 +136,34 @@ public class TrainNetwork {
             }
         }
         //save final model with success rate
-        saveModel(net, DATA_DIR + String.format("%.2f", rate) + "_" + "model.ser");
+        String finalModelPath = String.format(DATA_DIR + "%s_%.3f_%.3f_%d_%.3f_model.ser",modelName, lrc, lrf, epochs, rate);
+        saveModel(net, finalModelPath);
         System.out.println("Training complete and model serialized.");
     }
 
-    private static void adjustLeraningRate(NeuralNetwork net, int i) {
+    private static void adjustLeraningRate(NeuralNetwork net) {
         ConvolutionLayer c = (ConvolutionLayer) net.get_layers().get(0);
         FullyConnectedLayer f = (FullyConnectedLayer) net.get_layers().get(2);
-        if(i !=0) {
-            c.set_learningRate(randomFloat());
-            f.set_learningRate(randomFloat());
-        }
+
+        c.set_learningRate(.38);
+        f.set_learningRate(.38);
+
+
 
         System.out.println("Convolution Learning Rate = " + c.get_learningRate());
         System.out.println("Fully Connected Learning Rate = " + f.get_learningRate());
+        System.out.println();
+    }
+
+    private static double[] getLeraningRate(NeuralNetwork net) {
+        ConvolutionLayer c = (ConvolutionLayer) net.get_layers().get(0);
+        FullyConnectedLayer f = (FullyConnectedLayer) net.get_layers().get(2);
+
+        double[] lr = new double[2];
+        lr[0] = c.get_learningRate();
+        lr[1] = f.get_learningRate();
+
+        return lr;
     }
 
     private static void fineTuneAndSerializeModel(long seed) throws IOException, ClassNotFoundException {
@@ -110,6 +178,7 @@ public class TrainNetwork {
         if (net == null) {
             throw new IOException("Failed to load the pre-trained model.");
         }
+        adjustLeraningRate(net);
 
         int epochs = 100; // Fine-tuning for fewer epochs might be sufficient
         EarlyStopping earlyStopping = new EarlyStopping(5); // Set patience for early stopping
@@ -150,14 +219,13 @@ public class TrainNetwork {
         System.out.println("Training success rate: " + rate);
     }
 
-    private static NeuralNetwork getNeuralNetwork(long seed) {
-        double learningRateConvolution = .1;
-        double learningRateFullyConnected = .1;
+    private static NeuralNetwork getNeuralNetwork(long seed, double lrc, double lrf) {
+
         NetworkBuilder builder = new NetworkBuilder(28, 28, 256 * 100);
 
-        builder.addConvolutionLayer(8,5,1,learningRateConvolution, seed);
+        builder.addConvolutionLayer(8,5,1,lrc, seed);
         builder.addMaxPoolLayer(3,2);
-        builder.addFullyConnectedLayer(10,learningRateFullyConnected ,seed);
+        builder.addFullyConnectedLayer(10,lrf ,seed);
 
         return builder.build();
     }
@@ -169,3 +237,5 @@ public class TrainNetwork {
         return min + random.nextDouble() * (max - min);
     }
 }
+
+//
