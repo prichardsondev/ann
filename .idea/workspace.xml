@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f89e75f-f239-4c34-8d9f-a9b25174b831" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/data/excel/28x28Grayscale.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/data/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/Inference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/Inference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/ShapeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/ShapeData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/DataProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/util/DataAugmentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/util/DataAugmentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/BatchNormalizationLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/layers/BatchNormalizationLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/prichardsondev/ann/inference-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prichardsondev/ann/inference-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +49,6 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -74,7 +75,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "project.propCompiler",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -97,7 +98,7 @@
       <recent name="com.prichardsondev.ann.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Inference">
+  <component name="RunManager" selected="Application.Train">
     <configuration name="Inference" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.prichardsondev.ann.Inference" />
       <module name="ann" />
@@ -143,11 +144,23 @@
       <updated>1717758744332</updated>
       <workItem from="1717758745439" duration="13682000" />
       <workItem from="1717772461971" duration="798000" />
-      <workItem from="1717773279039" duration="51567000" />
+      <workItem from="1717773279039" duration="52911000" />
+      <workItem from="1717921422866" duration="20869000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -81,9 +81,7 @@ public class BatchNormalizationLayer extends Layer {
 
     @Override
     public void backPropagate(double[] dLdO) {
-        // Batch normalization backpropagation is more complex and requires additional code.
-        // It involves computing gradients for gamma and beta, and then propagating the gradient to the previous layer.
-        // Due to the complexity, this is left as an exercise to implement if needed.
+        // wip - if you do it please let me know and I'll merge
     }
 
     @Override

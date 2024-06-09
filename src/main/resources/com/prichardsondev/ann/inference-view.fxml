@@ -21,7 +21,7 @@
                     <HBox spacing="10">
                         <Button fx:id="saveButton" onAction="#handleSave" text="Save" />
                         <Button fx:id="clearButton" onAction="#handleClear" text="Clear" />
-                        <TextField fx:id="labelField" prefWidth="50" />
+                        <TextField fx:id="labelField" prefWidth="50" text="0" />
                         <Label text="Save Count:" />
                         <Label fx:id="saveCountLabel" />
                     </HBox>
