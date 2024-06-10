@@ -1,7 +1,7 @@
 ## Artificial Neural Network Project - ANN
 
 This project started by following this tutorial to build, test and train a model for the mnist dataset  
-[Java Neural Network Tutorial] (https://www.youtube.com/watch?v=3MMonOWGe0M&list=PLpcNcOt2pg8k_YsrMjSwVdy3GX-rc_ZgN)  
+[Java Neural Network Tutorial](https://www.youtube.com/watch?v=3MMonOWGe0M&list=PLpcNcOt2pg8k_YsrMjSwVdy3GX-rc_ZgN)  
 
 Project contains three applications for an Artificial Neural Network (ANN) built in Java:  
 
@@ -19,7 +19,7 @@ Project contains three applications for an Artificial Neural Network (ANN) built
 - **Data Augmentation and Splitting:** Generate synthetic data and split it into training, validation, and test sets using the ShapeData console app.
 
 ## Usage
-[code overview] (https://youtu.be/9vk9LItA_Ks)  
+[Code Overview](https://youtu.be/9vk9LItA_Ks)  
 
 
 ## License
