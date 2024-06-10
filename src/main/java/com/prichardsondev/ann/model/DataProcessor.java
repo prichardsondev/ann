@@ -81,7 +81,8 @@ public class DataProcessor {
                 .mapToObj(String::valueOf)
                 .collect(Collectors.joining(","));
         Image image = CSV2Image(row);
-        NeuralNetwork n = ModelCheckpoint.loadModel( DATA_DIR + "train_augmented.csv_0.100_0.100_100_0.709_model.ser");
+        /*this is a checkpoint form a model I trained at 74%. I'd add some data and build your own model*/
+        NeuralNetwork n = ModelCheckpoint.loadModel( DATA_DIR + "model_checkpoint.ser");
         return n != null ? n.guess(image) : 0; // Placeholder
     }
 

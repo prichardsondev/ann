@@ -66,7 +66,7 @@ public class InferenceController {
 
     private void drawLine(double x1, double y1, double x2, double y2) {
         gc.setStroke(Color.BLACK);
-        gc.setLineWidth(12);
+        gc.setLineWidth(8);
         gc.strokeLine(x1, y1, x2, y2);
     }
 
