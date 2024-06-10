@@ -98,6 +98,15 @@ public class InferenceController {
 
     @FXML
     private void handleGuess() throws IOException {
+        /*
+            Hackish - don't actually need the value to predict just
+            to keep running tally - modify predictionDigit code
+         */
+        if(guessField.getText().isEmpty())
+        {
+            showAlert("Missing Guess Value", "Enter value you are guessing");
+            return;
+        }
         int predictedDigit = dataProcessor.predictDigit(drawingCanvas, guessField.getText());
 
         if (predictedDigit == Integer.parseInt(guessField.getText())) numberCorrect++;

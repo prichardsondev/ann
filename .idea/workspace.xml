@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f89e75f-f239-4c34-8d9f-a9b25174b831" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/model/DataProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +50,8 @@
     &quot;Application.Train.executor&quot;: &quot;Run&quot;,
     &quot;Application.TrainNetwork.executor&quot;: &quot;Run&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Execution&quot;: &quot;External process execution failed&quot;,
+    &quot;Notification.DoNotAsk-Execution&quot;: &quot;true&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
@@ -139,7 +139,8 @@
       <workItem from="1717772461971" duration="798000" />
       <workItem from="1717773279039" duration="52911000" />
       <workItem from="1717921422866" duration="21532000" />
-      <workItem from="1718010841143" duration="918000" />
+      <workItem from="1718010841143" duration="1481000" />
+      <workItem from="1718012370394" duration="482000" />
     </task>
     <servers />
   </component>
