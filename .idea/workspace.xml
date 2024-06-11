@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9f89e75f-f239-4c34-8d9f-a9b25174b831" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/data/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/data/excel/28x28Grayscale.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/excel/28x28Grayscale.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/data/model_checkpoint.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/model_checkpoint.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/controller/InferenceController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,36 +47,36 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Inference.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Shape.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Train.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TrainNetwork.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Execution&quot;: &quot;External process execution failed&quot;,
-    &quot;Notification.DoNotAsk-Execution&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/prich/IdeaProjects/ann/src/main/data&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Inference.executor": "Run",
+    "Application.Shape.executor": "Run",
+    "Application.Train.executor": "Run",
+    "Application.TrainNetwork.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Notification.DisplayName-DoNotAsk-Execution": "External process execution failed",
+    "Notification.DoNotAsk-Execution": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/prich/IdeaProjects/ann/src/main/data",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\prich\IdeaProjects\ann\src\main\data" />
@@ -91,7 +96,7 @@
       <recent name="com.prichardsondev.ann.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Inference">
+  <component name="RunManager" selected="Application.Shape">
     <configuration name="Inference" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.prichardsondev.ann.Inference" />
       <module name="ann" />
@@ -141,21 +146,13 @@
       <workItem from="1717921422866" duration="21532000" />
       <workItem from="1718010841143" duration="1481000" />
       <workItem from="1718012370394" duration="482000" />
+      <workItem from="1718024863512" duration="1129000" />
+      <workItem from="1718027921459" duration="2931000" />
+      <workItem from="1718106152247" duration="12734000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/prichardsondev/ann/TrainNetwork.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

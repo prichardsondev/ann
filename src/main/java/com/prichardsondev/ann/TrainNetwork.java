@@ -48,8 +48,9 @@ public class TrainNetwork {
         System.out.println();
 
         //set network architecture
-        double lrc = .1;
-        double lrf = .1;
+        double lrc = .15; //.0001 - .1
+        double lrf = .2;
+        System.out.printf("Learning Rates: Fully Connected %.3f Convolution %.3f%n\n", lrf,lrc);
         NeuralNetwork net = getNeuralNetwork(seed, lrc, lrf);
         EarlyStopping earlyStopping = new EarlyStopping(5); // Set patience for early stopping
 
@@ -87,7 +88,7 @@ public class TrainNetwork {
         }
         //save final model with success rate
         String finalModelPath = String.format(DATA_DIR + "%s_%.3f_%.3f_%d_%.3f_model.ser",
-                trainingData.split(",")[0], lrc, lrf, i, rate);
+                trainingData, lrc, lrf, i, rate);
         saveModel(net, finalModelPath);
         System.out.println("Training complete: " + finalModelPath + " serialized");
     }

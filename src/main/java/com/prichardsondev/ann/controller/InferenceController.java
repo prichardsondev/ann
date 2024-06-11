@@ -82,7 +82,7 @@ public class InferenceController {
     private void handleSave() throws IOException {
         int[] vector = dataProcessor.saveCanvasAsMNISTVector(drawingCanvas);
         int[] prependVector = dataProcessor.prependValue(vector, labelField.getText());
-        String file = DATA_DIR + "scratch.csv";
+        String file = DATA_DIR + "data.csv";
 
         dataProcessor.appendToCSV(file, prependVector);
         clearCanvas();
